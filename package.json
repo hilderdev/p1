@@ -4,6 +4,7 @@
   "description": "Project 1",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon --exec babel-node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,15 @@
   "bugs": {
     "url": "https://github.com/hilderdev/p1/issues"
   },
-  "homepage": "https://github.com/hilderdev/p1#readme"
+  "homepage": "https://github.com/hilderdev/p1#readme",
+  "dependencies": {
+    "babel-preset-env": "^1.6.1",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "helmet": "^3.12.0",
+    "moment": "^2.22.1",
+    "mongoose": "^5.0.16",
+    "nodemon": "^1.17.3"
+  }
 }
