@@ -1,19 +1,23 @@
 import Express from 'express'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
+import env from 'dotenv'
 import router from './routes'
 import Rate from './models/rate'
+
+
 const app = Express();
 
+env.config();
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
-app.use('/api/v1/',router);
+app.use(process.env.API_BASE,router);
 
-app.get('/api/v1/', (req, res) => {
+app.get(process.env.API_BASE, (req, res) => {
     res.send(JSON.stringify('Api mi tasa de cambio', null, 2))
 });
 
-mongoose.connect('mongodb://localhost/mtc');
+mongoose.connect(`mongodb://${process.env.DB_HOST}/${process.env.DB_NAME}`);
 mongoose.Promise = global.Promise;
 
 var db = mongoose.connection;
